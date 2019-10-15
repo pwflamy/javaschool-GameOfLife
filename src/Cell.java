@@ -1,8 +1,15 @@
 import java.util.ArrayList;
 
+/**
+ * Класс Cell реализует клетку игры
+ */
 public class Cell {
-    public State state;
+    private State state;
 
+    /**
+     * Создает экземляр клетки с начальным состоянием
+     * @param state начальное состояние клетки
+     */
     public Cell(State state) {
         this.state = state;
     }
@@ -11,6 +18,12 @@ public class Cell {
         return state;
     }
 
+    /**
+     * Определяет следующее состояние клетки на основании ее соседей
+     * @param neighbors список соседей клетки
+     * @return true - состояние клетки измененено, false - состояние
+     * не менялось
+     */
     public boolean NextState(ArrayList<Cell> neighbors) {
         int aliveNeighbors = 0;
         for (Cell cell : neighbors) {
